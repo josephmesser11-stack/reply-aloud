@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Reply Aloud",
+  "version": "0.1.1",
+  "description": "Automatically play finished replies in ChatGPT, Claude, and Gemini using each site's built-in voice.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Reply Aloud",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*"],
+      "js": ["sites.js", "chat.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

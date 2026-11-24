@@ -1,0 +1,33 @@
+const playbackSites = {
+  'chatgpt.com': {
+    user: '[data-message-author-role="user"], [data-chatgpt-search-unit-key$=":user"]',
+    reply: '[data-message-author-role="assistant"], [data-local-conversation-final-assistant="true"] [data-response-body]',
+    composer: '#prompt-textarea, #mobile-composer-prompt, [contenteditable="true"][data-composer-markdown]',
+    send: '[data-testid="send-button"], button[aria-label="Send prompt"], button[aria-label="Send message"], #composer-submit-button, [data-composer-trailing-controls] button[aria-label="Send"]',
+    read: 'button[aria-label="Read aloud" i]',
+    stop: '[data-testid="stop-button"], button[aria-label="Stop generating"], button[aria-label="Stop streaming"]',
+    turn: '[data-turn="assistant"], [data-testid^="conversation-turn-"], article',
+    thread: /\/c\//,
+  },
+  'claude.ai': {
+    user: '[data-testid="user-message"], [data-user-message-bubble="true"]',
+    reply: '[data-testid="assistant-message"]',
+    composer: '[data-testid="chat-input"][contenteditable="true"], [data-testid="chat-input"] [contenteditable="true"], div.ProseMirror[contenteditable="true"]',
+    send: 'button[aria-label="Send message" i], button[data-testid="send-button"]',
+    read: 'button[aria-label="Read aloud" i]',
+    stop: 'button[aria-label="Stop response" i], button[aria-label="Stop generating" i], [data-is-streaming="true"]',
+    row: '[data-turn-key]',
+    thread: /^\/chat\/[^/]+/,
+  },
+  'gemini.google.com': {
+    user: 'user-query',
+    reply: 'model-response',
+    composer: 'rich-textarea [contenteditable="true"], .ql-editor[contenteditable="true"]',
+    send: 'button[aria-label="Send message" i]',
+    read: 'button[aria-label="Show more options" i]',
+    stop: 'button[aria-label="Stop response" i], button[aria-label="Stop generating" i]',
+    row: '.conversation-container[id]',
+    thread: /^\/app\/[^/]+/,
+    menuLabel: 'Listen',
+  },
+};
